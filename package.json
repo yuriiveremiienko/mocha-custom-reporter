@@ -1,0 +1,7 @@
+{
+  "name": "mocha-custom-reporter",
+  "version": "0.0.1",
+  "description": "Adds custom events for mocha runner",
+  "author": "Yurii Veremiienko",
+  "main": "index.js"
+ }
