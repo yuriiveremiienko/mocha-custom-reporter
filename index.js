@@ -11,40 +11,40 @@ function CustomReporter(runner) {
 	mocha.reporters.Base.call(this, runner);
 
 	runner.on('start', function () {
-		if (global.customReporter.onStart) {
-			global.customReporter.onStart.forEach(function (action) {
+		if (global.onStart) {
+			global.customReporter.forEach(function (action) {
 				action();
 			});
 		}
 	});
 
 	runner.on('pending', function () {
-		if (global.customReporter.onPending) {
-			global.customReporter.onPending.forEach(function (action) {
+		if (global.onPending) {
+			global.onPending.forEach(function (action) {
 				action();
 			});
 		}
 	});
 
 	runner.on('pass', function () {
-		if (global.customReporter.onPass) {
-			global.customReporter.onPass.forEach(function (action) {
+		if (global.onPass) {
+			global.onPass.forEach(function (action) {
 				action();
 			});
 		}
 	});
 
 	runner.on('fail', function () {
-		if (global.customReporter.onFail) {
-			global.customReporter.onFail.forEach(function (action) {
+		if (global.onFail) {
+			global.onFail.forEach(function (action) {
 				action();
 			});
 		}
 	});
 
 	runner.on('end', function () {
-		if (global.customReporter.onEnd) {
-			global.customReporter.onEnd.forEach(function (action) {
+		if (global.onEnd) {
+			global.onEnd.forEach(function (action) {
 				action();
 			});
 		}
