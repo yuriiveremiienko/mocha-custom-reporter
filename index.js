@@ -1,29 +1,52 @@
 /**
  * Created by Yurii_Veremiienko on 2/25/2017.
  */
+'use strict';
+
 var mocha = require('mocha');
+
 module.exports = CustomReporter;
 
 function CustomReporter(runner) {
 	mocha.reporters.Base.call(this, runner);
 
 	runner.on('start', function () {
-		console.log('runner on start');
+		if (global.customReporter.onStart) {
+			global.customReporter.onStart.forEach(function (action) {
+				action();
+			});
+		}
 	});
 
 	runner.on('pending', function () {
-		console.log('runner on pending');
+		if (global.customReporter.onPending) {
+			global.customReporter.onPending.forEach(function (action) {
+				action();
+			});
+		}
 	});
 
 	runner.on('pass', function () {
-		console.log('runner on pass');
+		if (global.customReporter.onPass) {
+			global.customReporter.onPass.forEach(function (action) {
+				action();
+			});
+		}
 	});
 
 	runner.on('fail', function () {
-		console.log('runner on fail');
+		if (global.customReporter.onFail) {
+			global.customReporter.onFail.forEach(function (action) {
+				action();
+			});
+		}
 	});
 
 	runner.on('end', function () {
-		console.log('runner on end');
+		if (global.customReporter.onEnd) {
+			global.customReporter.onEnd.forEach(function (action) {
+				action();
+			});
+		}
 	});
 }
