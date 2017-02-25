@@ -10,42 +10,43 @@ module.exports = CustomReporter;
 function CustomReporter(runner) {
 	mocha.reporters.Base.call(this, runner);
 
-	runner.on('start', function () {
+
+	runner.on('start', function (test) {
 		if (global.onStart) {
-			global.onStart.forEach(function (action) {
-				action();
+			global.customReporter.forEach(function (action) {
+				action(test);
 			});
 		}
 	});
 
-	runner.on('pending', function () {
+	runner.on('pending', function (test) {
 		if (global.onPending) {
 			global.onPending.forEach(function (action) {
-				action();
+				action(test);
 			});
 		}
 	});
 
-	runner.on('pass', function () {
+	runner.on('pass', function (test) {
 		if (global.onPass) {
 			global.onPass.forEach(function (action) {
-				action();
+				action(test);
 			});
 		}
 	});
 
-	runner.on('fail', function () {
+	runner.on('fail', function (test) {
 		if (global.onFail) {
 			global.onFail.forEach(function (action) {
-				action();
+				action(test);
 			});
 		}
 	});
 
-	runner.on('end', function () {
+	runner.on('end', function (test) {
 		if (global.onEnd) {
 			global.onEnd.forEach(function (action) {
-				action();
+				action(test);
 			});
 		}
 	});
