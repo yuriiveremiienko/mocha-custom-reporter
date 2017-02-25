@@ -13,7 +13,7 @@ function CustomReporter(runner) {
 
 	runner.on('start', function (test) {
 		if (global.onStart) {
-			global.customReporter.forEach(function (action) {
+			global.onStart.forEach(function (action) {
 				action(test);
 			});
 		}
