@@ -1,6 +1,10 @@
 # mocha-custom-reporter
 
-To execute custom functions simply add reporter in 
+To execute custom functions simply install package
+```javascript
+npm i mocha-custom-reporter --save
+```
+add as a reporter in 
 ```javascript
 mochaOpts.reporter = 'mocha-custom-reporter'
 ```
