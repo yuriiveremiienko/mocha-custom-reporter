@@ -35,10 +35,10 @@ function CustomReporter(runner) {
 		}
 	});
 
-	runner.on('fail', function (test) {
+	runner.on('fail', function (test, err) {
 		if (global.onFail) {
 			global.onFail.forEach(function (action) {
-				action(test);
+				action(test, err);
 			});
 		}
 	});
